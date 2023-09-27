@@ -13,6 +13,66 @@
            let randomNum = Math.floor(Math.random() *3)
            return(outputChoices[randomNum])
         }
+
+        function playRound(playerSelection,computerSelection)
+        {
+            let playerSelectionClean = playerSelection.toLowerCase()
+            if(playerSelectionClean == computerSelection)
+            {
+                return ("Tie game! Play again")
+            }
+            else if(((playerSelectionClean == "rock")&&(computerSelection=="scissors"))||((playerSelectionClean=="paper")&&(computerSelection=="rock"))||((playerSelectionClean=="scissors")&&(computerSelection=="paper")))
+            {
+                return ("You win! " + playerSelectionClean +" beats "+ computerSelection)
+            }
+            else
+            {
+                return ("You lose! " +  computerSelection+" beats "+ playerSelectionClean)
+            }
+
+        }
+
+        let computerScore = 0
+        let myScore = 0
+        let result = " "
+
+
+        function game()
+        {
+            for (let i = 0; i < 5; i++){
+
+                let playerSelection = prompt("What is your choice: rock, paper, or scissors?");
+                let computerSelection = getComputerChoice()
+                console.log("The computer chose: "+computerSelection)
+                result = playRound(playerSelection, computerSelection) 
+                console.log(result)
+                if(result.includes("You win!"))
+                {
+                    
+                    myScore = myScore + 1
+                }
+                else if(result.includes("You lose!"))
+                {
+                    computerScore = computerScore +1
+                }
+            }
+
+            console.log("the computer scored:"+computerScore+", you scored:"+myScore)
+            if(computerScore > myScore)
+            {
+                console.log("YOU LOSE, I WIN")
+            }
+            else if (myScore > computerScore)
+            {
+                console.log("I lose, you win, I am sad")
+            }
+            else
+            {
+                console.log("It's a tie, how lame")
+            }
+
+            return
+        }
     </script>
 </body>
 </html>
