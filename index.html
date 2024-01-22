@@ -10,6 +10,7 @@
     <h1>Rock, Paper, Scissors</h1>
     <p>Open your console to play!</p>
     <script>
+        console.log("Hello its working")
         function getComputerChoice()
         {
            const outputChoices =  ["rock", "paper", "scissors"]
@@ -19,7 +20,7 @@
 
         function playRound(playerSelection,computerSelection)
         {
-            let playerSelectionClean = playerSelection.toLowerCase()
+            let playerSelectionClean = playerSelection
             if(playerSelectionClean == computerSelection)
             {
                 return ("Tie game! Play again")
@@ -35,10 +36,11 @@
 
         }
 
+        console.log("Hello its working")
         let computerScore = 0
         let myScore = 0
         let result = " "
-
+        game()
 
         function game()
         {
